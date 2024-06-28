@@ -1,0 +1,8 @@
+*.sw?
+*.pyc
+
+# buildbot-worker
+settings.py
+twistd.hostname
+twistd.log
+twistd.pid

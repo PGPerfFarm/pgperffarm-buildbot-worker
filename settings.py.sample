@@ -1,0 +1,12 @@
+"""
+This is the Buildbot worker custom settings file.
+"""
+
+# Address of the buildbot host
+BUILDMASTER_HOST = "W.X.Y.Z"
+
+# Plant name of this worker
+WORKERNAME = "<plant>"
+
+# This worker's secret
+PASSWD = "<secret>"

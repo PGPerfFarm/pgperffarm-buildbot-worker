@@ -74,3 +74,26 @@ Create `settings.py`
 
 Copy `settings.py.sample` to `settings.py` and update the *WORKERNAME* and
 *SECRET* accordingly.
+
+Worker Specific PostgreSQL Configuration
+----------------------------------------
+
+Different hardware probably should have PostgreSQL configured differently, and
+each test probably needs further configuration changes.  So each worker is able
+to have its own set of configuration files that will added to PostgreSQL.  To
+accommodate all the different combinations, first create a subdirectory `guc`
+and create files with name in the format `$TEST.$BRANCH.conf`.
+
+For example, to create files for custom PostgreSQL configuration settings for
+DBT-2 that will be used in the *master* and v16 branches, create the following
+two files::
+
+    mkdir guc
+    touch dbt2.master.conf
+    touch dbt2.REL_16_BRANCH.conf
+
+The format of the files is the same as the `postgresql.conf` file.  For
+example, to change a couple parameters::
+
+    checkpoint_timeout = 30min
+    max_wal_size = 1000GB
